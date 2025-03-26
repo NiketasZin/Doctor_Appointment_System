@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Appointment</title>
+    <link rel="icon" th:href="@{/images/favicon.png}" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" th:href="@{/css/editTimeSlot.css}">
+</head>
+<body>
+    <div class="logo-container">
+        <img th:src="@{/images/logo.png}" alt="City Star Logo" class="logo">
+    </div>
+    <div class="container">
+        <div class="row justify-content-center align-items-center">
+            <form th:action="@{/doctor/updateTimeSlot}" method="post">
+                <input type="hidden" name="timeSlotId" th:value="${timeSlot.timeSlotId}">
+                <input type="hidden" name="doctorId" th:value="${timeSlot.doctor.doctorId}">
+                <div class="col-md-8">
+                    <div class="card">
+                        <div class="card-body">
+                            <h6 class="text-primary mb-3">Edit Time Slot</h6>
+                            <div class="row gutters">
+                                <div class="col-md-6 mb-3">
+                                    <label for="dateInput">Date</label>
+                                    <input type="date" class="form-control" id="dateInput" name="date" th:value="${timeSlot.date}" required>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label for="startTimeInput">Start Time</label>
+                                    <input type="time" class="form-control" id="startTimeInput" name="startTime" th:value="${timeSlot.startTime}" required>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label for="endTimeInput">End Time</label>
+                                    <input type="time" class="form-control" id="endTimeInput" name="endTime" th:value="${timeSlot.endTime}" required>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label for="maxCountInput">Patient Limit</label>
+                                    <input type="number" class="form-control" id="maxCountInput" name="maxCount" th:value="${timeSlot.maxCount}" required>
+                                </div>
+                            </div>
+                            <div class="button-container">
+                                <a th:href="@{/doctor/doctorAddTime/{doctorId}(doctorId=${timeSlot.doctor.doctorId})}" class="btn btn-secondary">Cancel</a>
+                                <button type="submit" class="btn btn-primary">Update</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script th:src="@{/js/editTimeSlot.js}"></script>
+</body>
+</html>

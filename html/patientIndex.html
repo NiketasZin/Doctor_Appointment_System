@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>City Star</title>
+    <link rel="icon" th:href="@{/images/favicon.png}" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" th:href="@{/css/patientIndex.css}">
+    <link rel="stylesheet" href="https://cdn-uicons.flaticon.com/2.1.0/uicons-regular-rounded/css/uicons-regular-rounded.css">
+    <link rel="stylesheet" href="https://cdn-uicons.flaticon.com/2.1.0/uicons-solid-rounded/css/uicons-solid-rounded.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="navbar-left">
+            <ul>
+                <li><a th:href="@{/patient/index/{id}(id=${patient.patientId})}">Home</a></li>
+                <li><a th:href="@{/patient/aboutUs/{id}(id=${patient.patientId})}">About Us</a></li>
+                <li><a th:href="@{/patient/medicalServices/{id}(id=${patient.patientId})}">Medical Services</a></li>
+                <li><a th:href="@{/patient/doctors/{id}(id=${patient.patientId})}">Doctors</a></li>
+                <li><a th:href="@{/patient/appointments/{id}(id=${patient.patientId})}">Appointments</a></li>
+                <li><a th:href="@{/patient/contactUs/{id}(id=${patient.patientId})}">Contact Us</a></li>
+            </ul>
+        </div>
+        <div class="navbar-right">
+            <div class="search-box">
+                <input type="text" placeholder="Search now" class="search-input">
+                <i class="fi fi-rr-search search-icon"></i>
+            </div>
+            <div class="notification-container">
+                <i class="fi fi-rr-bell notification-icon"></i>
+                <div class="notification-dropdown">
+                    <button class="notification-btn"><i class="fi fi-rr-envelope"></i> Messages</button>
+                    <a th:href="@{/patient/editProfile/{id}(id=${patient.patientId})}" class="notification-btn"><i class="fi fi-rr-user"></i> Profile</a>
+                    <button class="notification-btn" onclick="window.location.href='/patient/login'"><i class="fi fi-rr-sign-out-alt"></i> Logout</button>
+                </div>
+            </div>
+            <i class="fi fi-rr-phone-call phone-icon"></i>
+            <i class="fi fi-rr-menu-dots dots-icon"></i>
+        </div>
+    </nav>
+
+    <div class="logo-container">
+        <img th:src="@{/images/logo.png}" alt="City Star Logo" class="logo">
+    </div>
+
+    <div class="healing-text">
+        <h2>Healing Hands, Caring Hearts</h2>
+    </div>
+
+    <div class="slideshow-container">
+        <div class="swiper">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide"><img alt="Slide 1" th:src="@{/images/hospital.jpg}"></div>
+                <div class="swiper-slide"><img alt="Slide 2" th:src="@{/images/hall.jpg}"></div>
+                <div class="swiper-slide"><img alt="Slide 3" th:src="@{/images/reception.jpg}"></div>
+            </div>
+            <div class="swiper-pagination"></div>
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
+        </div>
+    </div>
+
+    <div class="facilities-container">
+        <div class="facility-box">
+            <h3>Easy Booking</h3>
+            <p>City Star provides a wide variety of doctors and facilities which can give the best treatment care and services for the patients.</p>
+            <button class="read-more-btn">Read More</button>
+        </div>
+        <div class="facility-box">
+            <h3>Emergency Department</h3>
+            <p>City Star has experienced and well-trained senior doctors and nurse team which can provide 24/7 ambulance services and give emergency treatments.</p>
+            <button class="read-more-btn">Read More</button>
+        </div>
+        <div class="facility-box">
+            <h3>City Star WELLNESS Packages</h3>
+            <p>Prevention is better than Cure. Everyone should do regular medical checkup yearly so that you could know, prevent and treat your diseases earlier.</p>
+            <button class="read-more-btn">Read More</button>
+        </div>
+        <div class="facility-box">
+            <h3>Imaging Department</h3>
+            <p>City Star has the most accurate diagnostic imaging center which can find disease parts and areas even it is very tiny lesion. We have the state...</p>
+            <button class="read-more-btn">Read More</button>
+        </div>
+    </div>
+    
+	<div class="about-us-container">
+	    <div class="about-us-content">
+	        <h2>About Us</h2>
+	        <p>City Star was established in August 2017 and started operating in November 2019.
+	         We aim to deliver affordable, high-quality healthcare services to people ranging from lower to upper socioeconomic segments. 
+	         Furthermore, we offer a variety of specialties together with state-of-the-art diagnostic facilities and compassionate care from clinicians, professional technicians, and well-trained staff to fulfill patients’ hopes and satisfaction.</p>
+	    </div>
+	    <hr class="about-us-divider">
+	    <div class="about-us-values">
+	        <div class="value-box">
+	            <i class="fi fi-rr-shield-check value-icon"></i>
+	            <h3>Our Vision</h3>
+	            <p>To Become the First Chain of Hospitals in Upper Myanmar.</p>
+	        </div>
+	        <div class="value-box">
+	            <i class="fi fi-rr-stethoscope value-icon"></i>
+	            <h3>Our Mission</h3>
+	            <p>Providing Affordable High-Quality Health Care to People in Upper Myanmar.</p>
+	        </div>
+	        <div class="value-box">
+	            <i class="fi fi-rr-users-alt value-icon"></i>
+	            <h3>Our Core Values</h3>
+	            <p>Patient Safety, Teamwork, and Compassionate Care.</p>
+	        </div>
+	    </div>
+	</div>
+	
+	<div class="photo-paragraph-container">
+	    <div class="paragraph-content">
+	        <h2>Our Commitment to Excellence</h2>
+	        <p>At City Star, we are dedicated to providing the highest standard of healthcare services. Our team of experienced professionals works tirelessly to ensure that every patient receives personalized care tailored to their unique needs. We believe in a holistic approach to health, combining advanced medical technology with compassionate care to achieve the best outcomes for our patients.</p>
+	    </div>
+	    <div class="photo-content">
+	        <img th:src="@{/images/doctors.jpg}" alt="Our Commitment to Excellence">
+	    </div>
+	</div>
+		
+	<div class="hospital-treatment-container">
+	    <h2>City Star Medical Services</h2>
+	    <div class="treatment-grid">
+	        <div class="treatment-box">
+	            <i class="fi fi-rr-scalpel treatment-icon"></i>
+	            <h3>Surgical Procedures</h3>
+	            <p>Addresses a wide range of conditions, including abdominal problems, hernias, and injuries.</p>
+	            <button class="read-more-btn">Read More</button>
+	        </div>
+	        <div class="treatment-box">
+	            <i class="fi fi-rr-tooth treatment-icon"></i>
+	            <h3>Dental Procedures</h3>
+	            <p>Include fillings, extractions, root canals, dental implants, orthodontic treatments, teeth whitening, and veneers.</p>
+	            <button class="read-more-btn">Read More</button>
+	        </div>
+	        <div class="treatment-box">
+	            <i class="fi fi-rr-microscope treatment-icon"></i>
+	            <h3>Diagnostic and Screening Procedures</h3>
+	            <p>X-rays, CT scans, MRIs, and ultrasounds to visualize internal structures.</p>
+	            <button class="read-more-btn">Read More</button>
+	        </div>
+	        <div class="treatment-box">
+	            <i class="fi fi-rr-medicine treatment-icon"></i>
+	            <h3>Therapies</h3>
+	            <p>Focuses on restoring movement and function through exercises and other techniques. Uses radiation to kill cancer cells.</p>
+	            <button class="read-more-btn">Read More</button>
+	        </div>
+	    </div>
+	</div>
+	
+	<footer class="footer-container">
+	    <div class="footer-main">
+	        <div class="footer-content">
+	            <div class="footer-links">
+	                <div class="footer-column">
+	                    <h4>Quick Links</h4>
+	                    <ul>
+	                        <li><a th:href="@{/patient/index/{id}(id=${patient.patientId})}">Home</a></li>
+	                        <li><a th:href="@{/patient/aboutUs/{id}(id=${patient.patientId})}">About Us</a></li>
+	                        <li><a th:href="@{/patient/medicalServices/{id}(id=${patient.patientId})}">Medical Services</a></li>
+	                        <li><a th:href="@{/patient/doctors/{id}(id=${patient.patientId})}">Doctors</a></li>
+	                        <li><a th:href="@{/patient/appointments/{id}(id=${patient.patientId})}">Appointments</a></li>
+	                        <li><a th:href="@{/patient/contactUs/{id}(id=${patient.patientId})}">Contact Us</a></li>
+	                    </ul>
+	                </div>
+	                <div class="footer-column">
+	                    <h4>Follow Us</h4>
+	                    <div class="social-icons">
+	                        <button class="social-btn"><img th:src="@{/images/fb.png}" alt="Facebook"></button>
+	                        <button class="social-btn"><img th:src="@{/images/ig.png}" alt="Instagram"></button>
+	                        <button class="social-btn"><img th:src="@{/images/linkedin.png}" alt="LinkedIn"></button>
+	                    </div>
+	                </div>
+	                <div class="footer-column">
+	                    <h4>Contact Us</h4>
+	                    <p>📞 09 98 517 2021</p>
+	                    <p>✉️ info@citystarclinic.com</p>
+	                </div>
+	            </div>
+	            <div class="footer-feedback">
+	                <h4>Feedback & Suggestion</h4>
+	                <form>
+	                    <textarea placeholder="Your feedback or suggestion"></textarea>
+	                    <button type="submit">Submit</button>
+	                </form>
+	            </div>
+	        </div>
+	    </div>
+	
+	    <div class="footer-bottom">
+	        <p>Hope you're fit as a fiddle</p>
+	    </div>
+	</footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script th:src="@{/js/patientIndex.js}"></script>
+</body>
+</html>

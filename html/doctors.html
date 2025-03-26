@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>City Star</title>
+    <link rel="icon" th:href="@{/images/favicon.png}" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" th:href="@{/css/doctors.css}">
+    <link rel="stylesheet" href="https://cdn-uicons.flaticon.com/2.1.0/uicons-regular-rounded/css/uicons-regular-rounded.css">
+    <link rel="stylesheet" href="https://cdn-uicons.flaticon.com/2.1.0/uicons-solid-rounded/css/uicons-solid-rounded.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="navbar-left">
+            <ul>
+                <li><a th:href="@{/patient/index/{id}(id=${patient.patientId})}">Home</a></li>
+                <li><a th:href="@{/patient/aboutUs/{id}(id=${patient.patientId})}">About Us</a></li>
+                <li><a th:href="@{/patient/medicalServices/{id}(id=${patient.patientId})}">Medical Services</a></li>
+                <li><a th:href="@{/patient/doctors/{id}(id=${patient.patientId})}">Doctors</a></li>
+                <li><a th:href="@{/patient/appointments/{id}(id=${patient.patientId})}">Appointments</a></li>
+                <li><a th:href="@{/patient/contactUs/{id}(id=${patient.patientId})}">Contact Us</a></li>
+            </ul>
+        </div>
+        <div class="navbar-right">
+            <div class="search-box">
+                <input type="text" placeholder="Search now" class="search-input">
+                <i class="fi fi-rr-search search-icon"></i>
+            </div>
+            <div class="notification-container">
+                <i class="fi fi-rr-bell notification-icon"></i>
+                <div class="notification-dropdown">
+                    <button class="notification-btn"><i class="fi fi-rr-envelope"></i> Messages</button>
+                    <a th:href="@{/patient/editProfile/{id}(id=${patient.patientId})}" class="notification-btn"><i class="fi fi-rr-user"></i> Profile</a>
+                    <button class="notification-btn" onclick="window.location.href='/patient/login'"><i class="fi fi-rr-sign-out-alt"></i> Logout</button>
+                </div>
+            </div>
+            <i class="fi fi-rr-phone-call phone-icon"></i>
+            <i class="fi fi-rr-menu-dots dots-icon"></i>
+        </div>
+    </nav>
+
+    <div class="logo-container">
+        <img th:src="@{/images/logo.png}" alt="City Star Logo" class="logo">
+    </div>
+
+    <div class="healing-text">
+        <h2>Healing Hands, Caring Hearts</h2>
+    </div>
+
+	<section class="doctors">
+	    <div class="doctor-card" th:each="doctor : ${doctors}">
+	        <div class="doctor-image">
+	            <img th:src="@{${doctor.doctorImage}}" alt="Doctor Image">
+	        </div>
+	        <h3 th:text="${doctor.doctorName}"></h3>
+	        <p>Specialization: <span class="specialty" th:text="${doctor.specialization}"></span></p>
+	        <p>Experienced Years: <span th:text="${doctor.experiencedYear}"></span></p>
+	        <p>Email: <span th:text="${doctor.doctorEmail}"></span></p>
+	        <a class="btn btn-primary btn-sm mt-3" th:href="@{/patient/singleDoctor/{id}/{doctorId}(id=${patient.patientId}, doctorId=${doctor.doctorId})}">
+	            See More
+	        </a>
+	    </div>
+	</section>
+
+    <footer class="footer-container">
+        <div class="footer-bottom">
+            <p>Hope you're fit as a fiddle</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script th:src="@{/js/doctors.js}"></script>
+</body>
+</html>

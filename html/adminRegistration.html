@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Registration</title>
+    <link rel="icon" th:href="@{/images/favicon.png}" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" th:href="@{/css/adminRegistration.css}">
+</head>
+<body>
+    <div class="logo-container">
+        <img th:src="@{/images/logo.png}" alt="City Star Logo" class="logo">
+    </div>
+    <div class="container">
+        <div class="registration-box">
+            <h1 class="title">City Star</h1>
+            <p class="welcome-text">Welcome to Admin Registration!</p>
+            <form th:action="@{/admin/submit}" th:object="${admin}" method="post">
+                <div class="form-group">
+                    <label for="adminName">Name</label>
+                    <input type="text" id="adminName" th:field="*{adminName}" placeholder="Enter Your Name">
+                </div>
+                <div class="form-group">
+                    <label for="adminEmail">Email</label>
+                    <input type="email" id="adminEmail" th:field="*{adminEmail}" placeholder="Enter Your Email">
+                </div>
+                <div class="form-group">
+                    <label for="adminPhone">Phone Number</label>
+                    <input type="text" id="adminPhone" th:field="*{adminPhone}" placeholder="Enter Your Phone Number">
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" th:field="*{password}" placeholder="Enter Your Password">
+                </div>
+                <button type="submit" class="submit-btn">SIGNUP</button>
+            </form>
+            <p class="login-text">Already have an account? <a href="/admin/login" class="login-link">LOGIN</a></p>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script th:src="@{/js/adminRegistration.js}"></script>
+</body>
+</html>
